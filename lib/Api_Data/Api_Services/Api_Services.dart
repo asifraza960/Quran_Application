@@ -5,6 +5,7 @@ import 'package:flutter_projects1/Api_Data/Model/Ayah_of_TheDay.dart';
 import 'package:http/http.dart' as http;
 
 import '../Model/Surah.dart';
+import '../Model/Surah_translation.dart';
 
 class ApiServices {
 
@@ -12,7 +13,7 @@ class ApiServices {
   List<Surah> list =[];
 
 
-
+  //  get aya of any Surah rendom  and desplay on the  home screen
   Future<AyahofTheday> getAyahOfTheDay() async {
     String Url =
         "http://api.alquran.cloud/v1/ayah/${random(1, 6237)}/editions/quran-uthmani,en.asad,en.pickthall ";
@@ -25,6 +26,19 @@ class ApiServices {
       throw Exception("Failed to load post ");
     }
   }
+
+
+  //  get Surah and desplay on the Screen
+  Future <SuraTranslationonList> getTranslation(int index)async{
+    final rul = "https://quranenc.com/api/v1/translation/aya/urdu_junagarhi/$index ";
+    var res = await http.get(Uri.parse(rul));
+    return SuraTranslationonList.fromJson(jsonDecode(res.body));
+
+
+  }
+
+
+
   //  get Surah from Api
   Future<List<Surah>> getSurah() async {
     List<Surah> list = []; // Always start with an empty list

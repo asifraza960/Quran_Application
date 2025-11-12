@@ -15,7 +15,6 @@ class Surah{
     this.englishNameTranslation
 });
 
-
   factory Surah.fromJson(Map<String,dynamic> json) {
 return Surah(
   name: json['name'],

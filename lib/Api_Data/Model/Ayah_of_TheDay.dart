@@ -7,8 +7,6 @@ final String ? juz;
 
 AyahofTheday({this.arText, this.enTran, this.surEnName, this.englishNameTranslation, this.juz});
 
-
-
 factory  AyahofTheday.fromJSON(Map<String,dynamic> json) {
 return AyahofTheday(
    arText : json['data'][0]['text'],
