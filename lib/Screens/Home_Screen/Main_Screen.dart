@@ -27,6 +27,7 @@ class _MainScreenState extends State<MainScreen> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: _widgetList[selectindex],
         bottomNavigationBar: ConvexAppBar(
           items: [

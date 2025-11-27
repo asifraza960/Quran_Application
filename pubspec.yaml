@@ -46,7 +46,8 @@ dependencies:
   # call Api
   http: ^1.5.0
   shared_preferences: ^2.5.3
-
+#  sheet appear for multi language
+  solid_bottom_sheet: ^0.1.13
 dev_dependencies:
   flutter_test:
     sdk: flutter

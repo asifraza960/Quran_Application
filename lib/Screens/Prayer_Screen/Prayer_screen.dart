@@ -12,6 +12,7 @@ class _PrayerScreenState extends State<PrayerScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
+      backgroundColor: Colors.white,
       body: Text("prayer"),
     ));
   }

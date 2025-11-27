@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_projects1/Api_Data/Api_Services/Api_Services.dart';
+import 'package:flutter_projects1/Constant/Constant.dart';
+import 'package:flutter_projects1/Screens/Quran_Screen/SurahDetails.dart';
+import 'package:flutter_projects1/Screens/Quran_Screen/juz_screen.dart';
 import '../../Api_Data/Model/Surah.dart';
 import '../../CustomWidget/CustomSutaListTile.dart'; // fixed name spelling
 
@@ -27,14 +29,14 @@ class _QuranScreenState extends State<QuranScreen> {
             bottom: const TabBar(
               tabs: [
                 Text(
-                  "Sajda",
+                  "Surah",
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),
                 ),
                 Text(
-                  "Surah", // Added missing tab title
+                  "Sajda", // Added missing tab title
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
@@ -52,10 +54,9 @@ class _QuranScreenState extends State<QuranScreen> {
           ),
           body: TabBarView(
             children: <Widget>[
-              // TAB 1 — Sajda
               FutureBuilder<List<Surah>>(
                 future: apiServices.getSurah(),
-                builder: (context, snapshot) {
+                builder: (BuildContext context,AsyncSnapshot<List<Surah>> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.hasError) {
@@ -69,22 +70,51 @@ class _QuranScreenState extends State<QuranScreen> {
                       itemBuilder: (context, index) => CustomSurahListTile(
                         surah: surah[index],
                         context: context,
-                        onTap: () {  },
+                        onTap: () {
+                          setState(() {
+                            Constants.suraIndex = (index + 1);
+                          });
+                          Navigator.pushNamed(context, Surahdetails.id);
+                        },
                       ),
                     );
                   }
                 },
               ),
-
-              // TAB 2 — Surah (placeholder)
               const Center(
                 child: Text("It's rainy here"),
               ),
+              GestureDetector(
+                child: Container(
+                  padding: EdgeInsets.all(8.0),
+                  child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+                      itemCount: 30,
+                      itemBuilder: (context ,index){
+                        return GestureDetector(
+                          onTap: (){
+                            setState(() {
+                              Constants.juzIndex = (index +1);
+                            });
+                            Navigator.pushNamed(context, JuzScreen.id);
+                          },
+                          child:  Card(
+                            elevation: 4,
+                            color: Colors.blueGrey,
+                            child: Center(
+                              child: Text("${index +1}" ,style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20
+                              ),),
+                            ),
+                          ),
+                        );
+                      }
+                  ),
 
-              // TAB 3 — Juz (placeholder)
-              const Center(
-                child: Text("It's sunny here"),
-              ),
+                ),
+              )
+
             ],
           ),
         ),

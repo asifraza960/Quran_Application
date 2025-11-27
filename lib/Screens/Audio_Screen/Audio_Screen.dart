@@ -12,6 +12,7 @@ class _AudioScreenState extends State<AudioScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
+      backgroundColor: Colors.white,
       body: Text("Adio screen"),
     ));
   }

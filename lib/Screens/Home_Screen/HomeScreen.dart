@@ -42,6 +42,7 @@ class _HomescreenState extends State<Homescreen> {
 
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: Column(
           children: [
             Container(
@@ -160,17 +161,20 @@ class _HomescreenState extends State<Homescreen> {
                         }
                         final ayah = snapshot.data!;
                         return Card(
+                          elevation: 5,
                           margin: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               const Text(
+
                                 "Quran Ayah of the Day",
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                                style: TextStyle(fontWeight: FontWeight.bold,
+                                ),
                               ),
-                              const Divider(thickness: 0.5),
+                              const Divider(thickness: 0.8),
                               Text(
                                 ayah.arText ?? "No Arabic text",
-                                style: const TextStyle(color: Colors.black54),
+                                style: const TextStyle(color: Colors.black),
                               ),
                               Text(
                                 ayah.enTran ?? "No English translation",

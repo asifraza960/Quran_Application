@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_projects1/Screens/Quran_Screen/SurahDetails.dart';
+import 'package:flutter_projects1/Screens/Quran_Screen/juz_screen.dart';
 
 import 'Screens/Spleesh_Screen/Spleesh_Screen.dart';
 
@@ -13,12 +15,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       title: 'Islamic Soul',
       theme: ThemeData(
         // This is the theme of your application.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        scaffoldBackgroundColor: Colors.white,
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: SpleeshScreen()
+      home: SpleeshScreen(),
+      routes: {
+        JuzScreen.id:(context) => JuzScreen(),
+        Surahdetails.id:(context) => Surahdetails()
+      },
     );
   }
 }
