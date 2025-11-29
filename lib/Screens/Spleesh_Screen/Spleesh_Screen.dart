@@ -1,9 +1,7 @@
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_projects1/Screens/Home_Screen/Main_Screen.dart';
-import 'package:flutter_projects1/Screens/Onboarding/Onboarding.dart';
+import 'package:get/get.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SpleeshScreen extends StatefulWidget {
@@ -19,18 +17,17 @@ class _SpleeshScreenState extends State<SpleeshScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     alreadyUsed  = prefs.getBool("alreadyUsed") ?? false;
   }
-
   @override
   void initState() {
     super.initState();
     getData();
-    Timer(Duration(seconds: 3), () =>
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) {
-              return alreadyUsed ? MainScreen() : OnboardingScreen();
-            }
-        ))
+    Timer(Duration(seconds: 3),(){
+      Get.offNamed("/login");
+    }
     );
+
+
+
   }
   @override
   Widget build(BuildContext context) {

@@ -48,9 +48,25 @@ dependencies:
   shared_preferences: ^2.5.3
 #  sheet appear for multi language
   solid_bottom_sheet: ^0.1.13
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+#   just audio
+  just_audio: ^0.9.39
+  font_awesome_flutter: ^10.9.1
+  #   just audio
+  audio_session: ^0.1.6
+  #   just audio
+  rxdart: ^0.27.7
+  #   just audio
+  get: ^4.7.3
+  flutter_spinkit: ^5.2.2
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  cloud_firestore: ^6.1.0
+  firebase_storage: ^13.0.4
+#   pic image from gallary
+  image_picker: ^1.2.1
+
+
+
 
 
   # The "flutter_lints" package below contains a set of recommended lints to

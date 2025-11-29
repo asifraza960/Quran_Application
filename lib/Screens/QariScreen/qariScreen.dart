@@ -3,6 +3,7 @@ import 'package:flutter_projects1/Constant/Constant.dart';
 import '../../Api_Data/Api_Services/Api_Services.dart';
 import '../../Api_Data/Model/Qari.dart';
 import '../../CustomWidget/qariCustomListTile.dart';
+import 'AudioSurahScreen.dart';
 
 class QariScreen extends StatefulWidget {
   const QariScreen({super.key});
@@ -107,7 +108,11 @@ class _QariScreenState extends State<QariScreen> {
                           EdgeInsets.symmetric(vertical: height * 0.005),
                           child: Qaricustomlisttile(
                             qari: qariList[index],
-                            ontap: () {},
+                            ontap: () {
+                              Navigator.push(
+                                  context,MaterialPageRoute(builder: (context)=> AudioSurahScreen(qari:snapshot.data![index]))
+                              );
+                            },
                           ),
                         );
                       },

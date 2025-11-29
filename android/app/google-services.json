@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "774679035668",
+    "project_id": "muslimsoul-88605",
+    "storage_bucket": "muslimsoul-88605.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774679035668:android:ab915e3ccc3d337ce14c01",
+        "android_client_info": {
+          "package_name": "com.example.flutter_projects1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw3XNkaN7vJZndA7XBw4T_tfEYusi20kM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
